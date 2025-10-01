@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business</title>
+    <link href="dist/output.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c4993cb090.js" crossorigin="anonymous"></script>
+
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none; 
+        }
+</style>
+</head>
+<body class="m-0 bg-[#fff] font-gilroy">
+    <header class="border-b-[1px] px-6 lg:px-16 border-[#DFDFE0] relative">
+        <div class="py-3 flex justify-between items-center">
+            <div class="flex-1 text-left">
+                <img src="./Знімок екрана 2022-12-05 о 12.05 1.png" alt="">
+            </div>
+            <div class="flex-1 text-center hidden  lg:flex">
+                <ul class="flex gap-7 font-semibold ">
+                    <li><a href="" class="text-[#000]">Discover</a></li>
+                    <li><a class="" href="business.html">Business</a></li>
+                    <li><a href="job.html">Jobs</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="">Marketplace</a></li>
+                </ul>
+            </div>
+            <div class="flex-1 hidden lg:block text-right">
+                <button class="bg-[#FF7801] font-gilroy font-semibold text-[#fff] rounded-[10px] px-[10px] py-2 text-[15px]">Get Started</button>
+            </div>
+            <div class="lg:hidden flex" id="menubtn">
+                <div class="cursor-pointer"><i class="fa-solid fa-bars"></i></div>
+            </div>
+        </div>
+           
+        <ul id="menu" class="max-h-0 overflow-hidden transition-all  font-gilroy absolute z-10 left-0 w-full bg-orange-900 h-[100vh] duration-500 ease-in-out lg:hidden bg-orange-900border-t">
+            <div class="p-10 flex flex-col gap-5 text-white">
+                <li><a href="" class="">Discover</a></li>
+                <li><a class="" href="business.html">Business</a></li>
+                <li><a href="job.html">Jobs</a></li>
+                <li><a href="event.html">Events</a></li>
+                <li><a href="">Marketplace</a></li>
+                <div class="">
+                    <button class="bg-[#FF7801] font-gilroy font-semibold text-[#fff] rounded-[10px] px-[10px] py-2 text-[15px]">Get Started</button>
+                </div>
+            </div>
+        </ul>
+    </header>
+
+    <div class="flex justify-between p-6 lg:px-16  py-3 items-center font-gilroy">
+        <div class="overflow-hidden py-3">
+            <ul class="flex gap-x-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
+                <li class="text-[#222222] font-[18px] border-b-[3px] border-[#EF8C37]"><a href="./business.html" class="text-[#EF8C37] font-normal ">Business</a></li>
+                <li class="text-[#222222] font-[18px]"><a href="job.html">Jobs</a></li>
+                <li class="text-[#222222] font-[18px]">Cars</li>
+                <li class="text-[#222222] font-[18px]">Real Estate</li>
+                <li class="text-[#222222] font-[18px]"><a href="event.html">Events</a></li>
+                <li class="text-[#222222] font-[18px]">Deals</li>
+            </ul>
+        </div>
+        <div class="relative  items-center lg:block hidden">
+            <span class="absolute left-3 top-[45%] -translate-y-1/2 w-5 h-5 text-gray-400">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input type="text" placeholder="Search Anything" class="bg-[#F5F5F5]  outline-0 border-[1.5px] border-[#f5f5f5] py-[6px] pl-9 pr-32 rounded-[10px]">
+        </div>
+    </div>
+
+    <div class="lg:hidden relative flex gap-2 font-gilroy items-center justify-between border-r-0 border-[1px] py-4 border-[#DFDFDF] px-6">
+        <div class="relative flex items-center">
+            <span class="absolute left-3 top-[45%] -translate-y-1/2 w-5 h-5 text-gray-400">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input type="text" placeholder="Search Anything" class="bg-[#F5F5F5]  outline-0 border-[1.5px] border-[#f5f5f5] py-[6px] w-[100%] pl-9 pr-28 rounded-[10px]">
+        </div>
+
+        <div class="w-1/5 cursor-pointer" id="filterbtn">
+            <p class="py-2 px-4 flex items-center justify-center gap-1 text-[#3E3E3E] bg-[#f5f5f5] rounded-[10px]"> <span><i class="fa-solid fa-filter"></i></span> Filter</p>
+        </div>
+
+        <aside id="filter" class="lg:hidden max-w-0 overflow-hidden transition-all bg-gray-100 font-gilroy top-0 border-[#DFDFE0] border-[1px] w-[100%] absolute left-0 h-[650px] border-t-0 rounded-b-2xl">
+            <div class="flex flex-col gap-2  w-full">
+                <h3 class="font-semibold px-6 py-5 flex justify-between">Filter <span id="cancel" class="cursor-pointer"><i class="fa-solid fa-xmark"></i></span></h3>
+                <div class=" w-full px-4 py-1">
+                    <div class="">
+                        <div class="accordion-item">
+                            <button class="w-full flex px-2 justify-between items-center py-4 text-left font-medium focus:outline-none">
+                                <p class="text-[16px] flex items-center">
+                                <span class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="15px" height="15px" viewBox="0 -64 640 640"><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>
+                                </span> &nbsp;  
+                                Categories</p>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300 icon"></i>
+                            </button>
+                            <div class="accordion-content flex flex-col gap-3 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="flex justify-between px-2">
+                                    <p>All</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Agriculture</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Art</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Boutiques</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Logistics</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Construction</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Education and Vaction</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Electrical Appliance</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Healthcare</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="bg-[#EF8C371A] py-4 px-2 text-center cursor-pointer">
+                                    <p class="text-[#EF8C37]"> <span><i class="fa-solid fa-angles-down"></i></span> &nbsp; See All Categories</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="accordion-item">
+                            <button class="w-full flex justify-between items-center py-4 px-2 text-left font-medium focus:outline-none">
+                                <p class="flex items-center"><span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" width="15px" height="15px" viewBox="-4 0 32 32" version="1.1">
+        
+                                        <title>location</title>
+                                        <desc>Created with Sketch Beta.</desc>
+                                        <defs>
+
+                                    </defs>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                            <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-106.000000, -413.000000)" fill="#000000">
+                                                <path d="M118,422 C116.343,422 115,423.343 115,425 C115,426.657 116.343,428 118,428 C119.657,428 121,426.657 121,425 C121,423.343 119.657,422 118,422 L118,422 Z M118,430 C115.239,430 113,427.762 113,425 C113,422.238 115.239,420 118,420 C120.761,420 123,422.238 123,425 C123,427.762 120.761,430 118,430 L118,430 Z M118,413 C111.373,413 106,418.373 106,425 C106,430.018 116.005,445.011 118,445 C119.964,445.011 130,429.95 130,425 C130,418.373 124.627,413 118,413 L118,413 Z" id="location" sketch:type="MSShapeGroup">
+
+                                    </path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </span> &nbsp; Location</p>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content text-center max-h-0 overflow-hidden transition-all duration-300">
+                                <input type="text" placeholder="Enter State or City" class="bg-[#F5F5F5] w-[95%] py-2 outline-0 rounded-lg px-4">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="accordion-item">
+                            <button class="w-full flex px-2 justify-between items-center py-4 text-left font-medium focus:outline-none">
+                                <p class="text-[16px] flex items-center"> 
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 16 16" fill="none">
+                                    <path d="M9.00001 0H7.00001L5.51292 4.57681L0.700554 4.57682L0.0825195 6.47893L3.97581 9.30756L2.48873 13.8843L4.10677 15.0599L8.00002 12.2313L11.8933 15.0599L13.5113 13.8843L12.0242 9.30754L15.9175 6.47892L15.2994 4.57681L10.4871 4.57681L9.00001 0Z" fill="#000000"/>
+                                    </svg>
+                                </span> 
+                                &nbsp; Ratings</p>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content flex flex-col gap-3 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="flex justify-between px-2">
+                                    <p>5 Stars</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>4 Stars</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>3 Stars</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>2 Stars</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>1 Star</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="bg-[#35BB25] rounded-full py-2 text-white  absolute bottom-3 w-[95%] left-2.5">Clear Filter</button>
+            </div>
+        </aside>
+    </div>
+
+
+    <div class="lg:px-16 px-6 font-gilroy flex justify-between border-[1px] border-r-0 border-b-0">
+        <aside class="lg:flex hidden border-[#DFDFE0] border-[1px] w-[22%] h-[650px] relative border-t-0 py-5 rounded-b-2xl">
+            <div class="flex flex-col gap-2  w-full">
+                <h3 class="font-semibold px-2">Filter</h3>
+                <div class=" w-full">
+                    <div class="">
+                        <div class="accordion-item">
+                            <button class="w-full flex px-2 justify-between items-center py-4 text-left font-medium focus:outline-none">
+                                <p class="text-[16px] flex items-center">
+                                <span class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="15px" height="15px" viewBox="0 -64 640 640"><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>
+                                </span> &nbsp;  
+                                Categories</p>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300 icon"></i>
+                            </button>
+                            <div class="accordion-content flex flex-col gap-3 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="flex justify-between px-2">
+                                    <p>All</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Agriculture</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Art</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Boutiques</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Logistics</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Construction</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Education and Vaction</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Electrical Appliance</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Healthcare</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="bg-[#EF8C371A] py-4 px-2 text-center cursor-pointer">
+                                    <p class="text-[#EF8C37]"> <span><i class="fa-solid fa-angles-down"></i></span> &nbsp; See All Categories</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="accordion-item">
+                            <button class="w-full flex justify-between items-center py-4 px-2 text-left font-medium focus:outline-none">
+                                <p class="flex items-center"><span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" width="15px" height="15px" viewBox="-4 0 32 32" version="1.1">
+        
+                                        <title>location</title>
+                                        <desc>Created with Sketch Beta.</desc>
+                                        <defs>
+
+                                    </defs>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                            <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-106.000000, -413.000000)" fill="#000000">
+                                                <path d="M118,422 C116.343,422 115,423.343 115,425 C115,426.657 116.343,428 118,428 C119.657,428 121,426.657 121,425 C121,423.343 119.657,422 118,422 L118,422 Z M118,430 C115.239,430 113,427.762 113,425 C113,422.238 115.239,420 118,420 C120.761,420 123,422.238 123,425 C123,427.762 120.761,430 118,430 L118,430 Z M118,413 C111.373,413 106,418.373 106,425 C106,430.018 116.005,445.011 118,445 C119.964,445.011 130,429.95 130,425 C130,418.373 124.627,413 118,413 L118,413 Z" id="location" sketch:type="MSShapeGroup">
+
+                                    </path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </span> &nbsp; Location</p>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content text-center max-h-0 overflow-hidden transition-all duration-300">
+                                <input type="text" placeholder="Enter State or City" class="bg-[#F5F5F5] w-[95%] py-2 outline-0 rounded-lg px-4">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="accordion-item">
+                            <button class="w-full flex px-2 justify-between items-center py-4 text-left font-medium focus:outline-none">
+                                <p class="text-[16px] flex items-center"> 
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 16 16" fill="none">
+                                    <path d="M9.00001 0H7.00001L5.51292 4.57681L0.700554 4.57682L0.0825195 6.47893L3.97581 9.30756L2.48873 13.8843L4.10677 15.0599L8.00002 12.2313L11.8933 15.0599L13.5113 13.8843L12.0242 9.30754L15.9175 6.47892L15.2994 4.57681L10.4871 4.57681L9.00001 0Z" fill="#000000"/>
+                                    </svg>
+                                </span> 
+                                &nbsp; Ratings</p>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content flex flex-col gap-3 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="flex justify-between px-2">
+                                    <p>5 Stars</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>4 Stars</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>3 Stars</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>2 Stars</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>1 Star</p>
+                                    <input type="checkbox" class="w-[20px] h-[20px] accent-orange-500 text-white" name="" id="">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="bg-[#35BB25] rounded-full py-2 text-white  absolute bottom-3 w-[95%] left-1.5">Clear Filter</button>
+            </div>
+        </aside>
+        <main class="lg:w-[76%] w-full py-5">
+            <h3 class="font-semibold">Showing 450 results</h3>
+            <div class="my-5 flex flex-wrap justify-between gap-3 gap-y-5 w-[100%]">
+                <div class="bg-[#F5F5F5] lg:w-[23.9%] max-w-sm md:max-w-lg lg:min-w-[205px] xl:max-w-4xl   md:w-[32%] w-[48%] lg:max-w-sm md:max-w-lg lg:min-w-[205px] p-4 border-[0.66px] font-gilroy rounded-[10px] flex flex-col gap-4 justify-between">
+                    <img src="b7b7883cb07ba876943a1971890b243984b41cee.jpg" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px] text-[12px] sm:text-[15px] md:text-[15px]">United Bank of Africa</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[10px] sm:text-[13px] md:text-[13px] font-medium">Financial Service</p>
+                    </div>
+                    <p class="font-semibold flex items-center lg:text-[13px] text-[10px] sm:text-[13px] md:text-[13px] gap-1.5 text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>Ikorodu, Lagos</p>
+                    <button class="bg-[#464646] text-[#fff] lg:text-[11px] sm:text-[11px] ms:text-[11px] text-[10px]  py-2.5 rounded-full font-semibold tracking-wide font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%] max-w-sm md:max-w-lg lg:min-w-[205px] xl:max-w-4xl  md:w-[32%] w-[48%] max-w-sm md:max-w-lg lg:min-w-[205px] p-4 border-[0.66px] font-gilroy rounded-[10px] flex flex-col gap-4 justify-between">
+                    <img src="./4a9446d63b3a7dde8b0595402413ff0963eec39a.png" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px]  text-[12px] sm:text-[15px] md:text-[15px]">Aquafina</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[10px] sm:text-[13px] md:text-[13px] font-normal">Bottled Water & Beverages</p>
+                    </div>
+                    <p class="font-semibold flex items-center gap-1.5 lg:text-[13px] sm:text-[13px] md:text-[13px] text-[10px] text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>Lagos, Nigeria</p>
+                    <button class="bg-[#464646] text-[#fff] lg:text-[11px] text-[10px] sm:text-[11px] md:text-[11px] font-semibold tracking-wide py-2.5 rounded-full font-medium font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%] max-w-sm md:max-w-lg lg:min-w-[205px] xl:max-w-4xl    md:w-[32%] w-[48%] max-w-sm md:max-w-lg lg:min-w-[205px] p-4 border-[0.66px] font-gilroy rounded-[10px] flex flex-col justify-between gap-4">
+                    <img src="./957bc352bf615d34af637fd83ab4299735cf70f0.jpg" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px] text-[12px] sm:text-[15px] md:text-[15px]">Guaranty Trust Bank</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] font-normal">Financial Service</p>
+                    </div>
+                    <p class="font-semibold flex  lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] items-center gap-1.5 text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>4, Badaru, Ojo, Alaba, Ojo</p>
+                    <button class="bg-[#464646] font-semibold lg:text-[11px] sm:text-[11px] md:text-[11px] text-[10px] text-[#fff] py-2.5 rounded-full font-medium font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%] max-w-sm md:max-w-lg lg:min-w-[205px] xl:max-w-4xl  md:w-[32%] w-[48%] p-4 max-w-sm md:max-w-lg lg:min-w-[205px] border-[0.66px] font-gilroy rounded-[10px] flex flex-col justify-between gap-4">
+                    <img src="./f6ce691ffea5e49c045f403d271d0dc5f2c283d7.jpg" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px] text-[13px] sm:text-[15px] md:text-[15px]">Pepsi HQ</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] font-normal">Beverages</p>
+                    </div>
+                    <p class="font-semibold flex lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] items-center gap-1.5 text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>Lagos, Nigria</p>
+                    <button class="bg-[#464646] font-semibold lg:text-[11px] sm:text-[11px] md:text-[11px] text-[10px] text-[#fff] py-2.5 rounded-full font-medium font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+
+                <div class="bg-[#F5F5F5] lg:w-[23.9%]   md:w-[32%] w-[48%] max-w-sm md:max-w-lg lg:min-w-[205px] p-4 border-[0.66px] font-gilroy rounded-[10px] flex flex-col gap-4 justify-between">
+                    <img src="b7b7883cb07ba876943a1971890b243984b41cee.jpg" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px] text-[12px] sm:text-[15px] md:text-[15px]">United Bank of Africa</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[10px] sm:text-[13px] md:text-[13px] font-medium">Financial Service</p>
+                    </div>
+                    <p class="font-semibold flex items-center lg:text-[13px] text-[10px] sm:text-[13px] md:text-[13px] gap-1.5 text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>Ikorodu, Lagos</p>
+                    <button class="bg-[#464646] text-[#fff] lg:text-[11px] sm:text-[11px] ms:text-[11px] text-[10px]  py-2.5 rounded-full font-semibold tracking-wide font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%]  md:w-[32%] w-[48%] max-w-sm md:max-w-lg lg:min-w-[205px] p-4 border-[0.66px] font-gilroy rounded-[10px] flex flex-col gap-4 justify-between">
+                    <img src="./4a9446d63b3a7dde8b0595402413ff0963eec39a.png" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px]  text-[12px] sm:text-[15px] md:text-[15px]">Aquafina</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[10px] sm:text-[13px] md:text-[13px] font-normal">Bottled Water & Beverages</p>
+                    </div>
+                    <p class="font-semibold flex items-center gap-1.5 lg:text-[13px] sm:text-[13px] md:text-[13px] text-[10px] text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>Lagos, Nigeria</p>
+                    <button class="bg-[#464646] text-[#fff] lg:text-[11px] text-[10px] sm:text-[11px] md:text-[11px] font-semibold tracking-wide py-2.5 rounded-full font-medium font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%]    md:w-[32%] w-[48%] max-w-sm md:max-w-lg lg:min-w-[205px] p-4 border-[0.66px] font-gilroy rounded-[10px] flex flex-col justify-between gap-4">
+                    <img src="./957bc352bf615d34af637fd83ab4299735cf70f0.jpg" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px] text-[12px] sm:text-[15px] md:text-[15px]">Guaranty Trust Bank</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] font-normal">Financial Service</p>
+                    </div>
+                    <p class="font-semibold flex  lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] items-center gap-1.5 text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>4, Badaru, Ojo, Alaba, Ojo</p>
+                    <button class="bg-[#464646] font-semibold lg:text-[11px] sm:text-[11px] md:text-[11px] text-[10px] text-[#fff] py-2.5 rounded-full font-medium font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%]  md:w-[32%] w-[48%] p-4 max-w-sm md:max-w-lg lg:min-w-[205px] border-[0.66px] font-gilroy rounded-[10px] flex flex-col justify-between gap-4">
+                    <img src="./f6ce691ffea5e49c045f403d271d0dc5f2c283d7.jpg" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px] text-[13px] sm:text-[15px] md:text-[15px]">Pepsi HQ</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] font-normal">Beverages</p>
+                    </div>
+                    <p class="font-semibold flex lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] items-center gap-1.5 text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>Lagos, Nigria</p>
+                    <button class="bg-[#464646] font-semibold lg:text-[11px] sm:text-[11px] md:text-[11px] text-[10px] text-[#fff] py-2.5 rounded-full font-medium font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%]   md:w-[32%] w-[48%] lg:max-w-sm md:max-w-lg lg:min-w-[205px] p-4 border-[0.66px] font-gilroy rounded-[10px] flex flex-col gap-4 justify-between">
+                    <img src="b7b7883cb07ba876943a1971890b243984b41cee.jpg" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px] text-[12px] sm:text-[15px] md:text-[15px]">United Bank of Africa</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[10px] sm:text-[13px] md:text-[13px] font-medium">Financial Service</p>
+                    </div>
+                    <p class="font-semibold flex items-center lg:text-[13px] text-[10px] sm:text-[13px] md:text-[13px] gap-1.5 text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>Ikorodu, Lagos</p>
+                    <button class="bg-[#464646] text-[#fff] lg:text-[11px] sm:text-[11px] ms:text-[11px] text-[10px]  py-2.5 rounded-full font-semibold tracking-wide font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%]  md:w-[32%] w-[48%] max-w-sm md:max-w-lg lg:min-w-[205px] p-4 border-[0.66px] font-gilroy rounded-[10px] flex flex-col gap-4 justify-between">
+                    <img src="./4a9446d63b3a7dde8b0595402413ff0963eec39a.png" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px]  text-[12px] sm:text-[15px] md:text-[15px]">Aquafina</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[10px] sm:text-[13px] md:text-[13px] font-normal">Bottled Water & Beverages</p>
+                    </div>
+                    <p class="font-semibold flex items-center gap-1.5 lg:text-[13px] sm:text-[13px] md:text-[13px] text-[10px] text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>Lagos, Nigeria</p>
+                    <button class="bg-[#464646] text-[#fff] lg:text-[11px] text-[10px] sm:text-[11px] md:text-[11px] font-semibold tracking-wide py-2.5 rounded-full font-medium font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%]    md:w-[32%] w-[48%] max-w-sm md:max-w-lg lg:min-w-[205px] p-4 border-[0.66px] font-gilroy rounded-[10px] flex flex-col justify-between gap-4">
+                    <img src="./957bc352bf615d34af637fd83ab4299735cf70f0.jpg" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px] text-[12px] sm:text-[15px] md:text-[15px]">Guaranty Trust Bank</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] font-normal">Financial Service</p>
+                    </div>
+                    <p class="font-semibold flex  lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] items-center gap-1.5 text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>4, Badaru, Ojo, Alaba, Ojo</p>
+                    <button class="bg-[#464646] font-semibold lg:text-[11px] sm:text-[11px] md:text-[11px] text-[10px] text-[#fff] py-2.5 rounded-full font-medium font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%]  md:w-[32%] w-[48%] p-4 max-w-sm md:max-w-lg lg:min-w-[205px] border-[0.66px] font-gilroy rounded-[10px] flex flex-col justify-between gap-4">
+                    <img src="./f6ce691ffea5e49c045f403d271d0dc5f2c283d7.jpg" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px] text-[13px] sm:text-[15px] md:text-[15px]">Pepsi HQ</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] font-normal">Beverages</p>
+                    </div>
+                    <p class="font-semibold flex lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] items-center gap-1.5 text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>Lagos, Nigria</p>
+                    <button class="bg-[#464646] font-semibold lg:text-[11px] sm:text-[11px] md:text-[11px] text-[10px] text-[#fff] py-2.5 rounded-full font-medium font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%]   md:w-[32%] w-[48%] lg:max-w-sm md:max-w-lg lg:min-w-[205px] p-4 border-[0.66px] font-gilroy rounded-[10px] flex flex-col gap-4 justify-between">
+                    <img src="b7b7883cb07ba876943a1971890b243984b41cee.jpg" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px] text-[12px] sm:text-[15px] md:text-[15px]">United Bank of Africa</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[10px] sm:text-[13px] md:text-[13px] font-medium">Financial Service</p>
+                    </div>
+                    <p class="font-semibold flex items-center lg:text-[13px] text-[10px] sm:text-[13px] md:text-[13px] gap-1.5 text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>Ikorodu, Lagos</p>
+                    <button class="bg-[#464646] text-[#fff] lg:text-[11px] sm:text-[11px] ms:text-[11px] text-[10px]  py-2.5 rounded-full font-semibold tracking-wide font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%]  md:w-[32%] w-[48%] max-w-sm md:max-w-lg lg:min-w-[205px] p-4 border-[0.66px] font-gilroy rounded-[10px] flex flex-col gap-4 justify-between">
+                    <img src="./4a9446d63b3a7dde8b0595402413ff0963eec39a.png" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px]  text-[12px] sm:text-[15px] md:text-[15px]">Aquafina</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[10px] sm:text-[13px] md:text-[13px] font-normal">Bottled Water & Beverages</p>
+                    </div>
+                    <p class="font-semibold flex items-center gap-1.5 lg:text-[13px] sm:text-[13px] md:text-[13px] text-[10px] text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>Lagos, Nigeria</p>
+                    <button class="bg-[#464646] text-[#fff] lg:text-[11px] text-[10px] sm:text-[11px] md:text-[11px] font-semibold tracking-wide py-2.5 rounded-full font-medium font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%]    md:w-[32%] w-[48%] max-w-sm md:max-w-lg lg:min-w-[205px] p-4 border-[0.66px] font-gilroy rounded-[10px] flex flex-col justify-between gap-4">
+                    <img src="./957bc352bf615d34af637fd83ab4299735cf70f0.jpg" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px] text-[12px] sm:text-[15px] md:text-[15px]">Guaranty Trust Bank</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] font-normal">Financial Service</p>
+                    </div>
+                    <p class="font-semibold flex  lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] items-center gap-1.5 text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>4, Badaru, Ojo, Alaba, Ojo</p>
+                    <button class="bg-[#464646] font-semibold lg:text-[11px] sm:text-[11px] md:text-[11px] text-[10px] text-[#fff] py-2.5 rounded-full font-medium font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+                <div class="bg-[#F5F5F5] lg:w-[23.9%]  md:w-[32%] w-[48%] p-4 max-w-sm md:max-w-lg lg:min-w-[205px] border-[0.66px] font-gilroy rounded-[10px] flex flex-col justify-between gap-4">
+                    <img src="./f6ce691ffea5e49c045f403d271d0dc5f2c283d7.jpg" class="w-[52px] h-[52px] rounded-[6.6px] object-cover" alt="">
+                    <div>
+                        <h5 class="font-bold lg:text-[15px] text-[13px] sm:text-[15px] md:text-[15px]">Pepsi HQ</h5>
+                        <p class="text-[#717680] lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] font-normal">Beverages</p>
+                    </div>
+                    <p class="font-semibold flex lg:text-[13px] text-[11px] sm:text-[13px] md:text-[13px] items-center gap-1.5 text-[#717680]" > <span class="text-[#35BB25]"><i class="fa-solid fa-location-dot"></i></span>Lagos, Nigria</p>
+                    <button class="bg-[#464646] font-semibold lg:text-[11px] sm:text-[11px] md:text-[11px] text-[10px] text-[#fff] py-2.5 rounded-full font-medium font-gilroy">Explore <span class=" pl-1"><i class="fa-solid fa-arrow-right -rotate-45"></i></span> </button>
+                </div>
+            </div>
+            <div class="mt-7 flex justify-center lg:justify-between items-center">
+                <p class="hidden lg:block">Showing 1 to 10 of 120 Entries</p>
+                <div class="flex gap-3">
+                    <span class="bg-[#F5F5F5] h-[45px] w-[45px] flex justify-center items-center text-[15px] rounded-[5px]"><i class="fa-solid fa-arrow-left"></i></span>
+                    <p class="bg-[#35BB25] h-[45px] w-[45px] flex justify-center items-center text-[15px] rounded-[5px]">1</p>
+                    <p class="bg-[#F5F5F5]  h-[45px] w-[45px] flex justify-center items-center text-[15px] rounded-[5px]">2</p>
+                    <span class="bg-[#F5F5F5]  h-[45px] w-[45px] flex justify-center items-center text-[15px] rounded-[5px]">...</span>
+                    <span class="bg-[#F5F5F5]  h-[45px] w-[45px] flex justify-center items-center text-[15px] rounded-[5px]">10</span>
+                    <span class=" bg-[#F5F5F5] h-[45px] w-[45px] flex justify-center items-center text-[15px] rounded-[5px]"><i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <section class="lg:px-16 px-6 my-10 flex flex-col gap-6 font-gilroy">
+        <img src="./f30601cd623a742959dffd1c86d8f9c5e71c7a3d.jpg" class="rounded-[10px] w-[100%]" alt="">
+        <div style="background-color: #002B1A;" class="flex items-center gap-y-5 p-5 lg:h-[238px] rounded-[20px] p-5">
+            <div class="flex lg:flex-row flex-col justify-between gap-10 lg:items-end w-full">
+                <div class="flex flex-col gap-4">
+                    <h3 class="lg:text-[35px] text-[20px] text-[#fff] w-[350px] capitalize lg:leading-9 leading-5 font-semibold">Subscribe now to our newsletter</h3>
+                    <p class="text-gray-400 lg:w-[433px] w-[315px] capitalize text-[11px] lg:text-[19px]">Subscribe now and never miss a thing about new businesses and services in Nigeria. </p>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <input type="text" class="rounded-[10px] py-[10.6px] px-[14px]" placeholder="Enter your email here">
+                    <button class="rounded-[30px] bg-[#35BB25] text-white px-28 py-[10.66px]">Subscribe</button>
+                </div>
+            </div>
+       </div>
+    </section>
+
+    <footer class="lg:px-16 px-6 font-gilroy gap-7">
+        <div class="flex justify-between py-6 lg:flex-row flex-col gap-y-8">
+            <div>
+                <img src="./Знімок екрана 2022-12-05 о 12.05 1.png" alt="">
+            </div>
+            <div class="flex lg:justify-between gap-x-24 gap-y-10 lg:gap-14 flex-wrap lg:w-[50%] w-full">
+                <div class="sub-links">
+                    <div>
+                        <ul class="flex flex-col gap-2">
+                            <h4 class="text-[#6C727F] text-[18px]">NAVIGATION</h4>
+                            <li>Food & Drinks</li>
+                            <li>Events</li>
+                            <li>Business</li>
+                            <li>Services</li>
+                            <li>Marketplace</li>
+                            <li>Jobs</li>
+                            <li>Real Estate</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sub-links">
+                    <div>
+                        <ul class="flex flex-col gap-2">
+                            <h4 class="text-[#6C727F] text-[18px]">ABOUT</h4>
+                            <li class="font-medium">Who We Are</li>
+                            <li>Contact Us</li>
+                            <li>FAQs</li>
+                            <li>Terms of Use</li>
+                            <li>Privacy Policy</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sub-links">
+                    <div>
+                        <ul class="flex flex-col gap-2">
+                            <h4 class="text-[#6C727F] text-[18px]">STAY UPDATED</h4>
+                            <li>Advertise</li>
+                            <li>Articles</li>
+                            <li>CNTV</li>
+                            <li>Business Mixer</li>
+                            <li>Club Connect</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between lg:flex-row flex-col gap-y-5 border-t-[1px] border-gray-500 py-5 mb-6">
+            <div>
+                <p>©2024ConnectNigeria.com — All Rights Reserved</p>
+            </div>
+            <div class="links">
+                <ul class="flex gap-10">
+                    <li><a href="" class="text-[#6C727F]"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="" class="text-[#6C727F]"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href="" class="text-[#6C727F]"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="" class="text-[#6C727F]"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+
+ <script>
+    const btn = document.getElementById("menubtn");
+    const menu = document.getElementById("menu");
+
+      btn.addEventListener("click", () => {
+      if (menu.classList.contains("max-h-0")) {
+        menu.classList.remove("max-h-0");
+        menu.classList.add("max-h-96");
+      } else {
+        menu.classList.add("max-h-0");
+        menu.classList.remove("max-h-96");
+      }
+    });
+
+    const filterbtn = document.getElementById("filterbtn");
+    const filter = document.getElementById("filter");
+    const cancel = document.getElementById("cancel");
+
+      filterbtn.addEventListener("click", () => {
+      if (filter.classList.contains("max-w-0")) {
+        filter.classList.remove("max-w-0");
+        filter.classList.add("max-w-full");
+      } else {
+        filter.classList.add("max-w-0");
+        filter.classList.remove("max-w-full");
+      }
+    });
+
+    cancel.addEventListener('click' , () => {
+        filter.classList.add("max-w-0");
+        filter.classList.remove("max-w-full");
+    })
+
+  
+    document.querySelectorAll(".accordion-item button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector("i");
+
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+          icon.classList.remove("rotate-180");
+        } else {
+          document.querySelectorAll(".accordion-content").forEach((el) => {
+            el.style.maxHeight = null;
+          });
+          document.querySelectorAll(".accordion-item i").forEach((ic) => {
+            ic.classList.remove("rotate-180");
+          });
+
+          content.style.maxHeight = content.scrollHeight + "px";
+          icon.classList.add("rotate-180");
+        }
+      });
+    });
+  </script>
+</html>

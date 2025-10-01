@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <link href="dist/output.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c4993cb090.js" crossorigin="anonymous"></script>
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none; 
+        }
+</style>
+</head>
+<body class="m-0 font-gilroy">
+    <header class="border-b-[1px] px-6 lg:px-16 border-[#DFDFE0] relative">
+        <div class="py-3 flex justify-between items-center">
+            <div class="flex-1 text-left">
+                <img src="./Знімок екрана 2022-12-05 о 12.05 1.png" alt="">
+            </div>
+            <div class="flex-1 text-center hidden  lg:flex">
+                <ul class="flex gap-7 font-semibold">
+                    <li><a href="" class="text-[#000] ">Discover</a></li>
+                    <li><a class="" href="./business.html">Business</a></li>
+                    <li><a href="./job.html">Jobs</a></li>
+                    <li><a href="./event.html">Events</a></li>
+                    <li><a href="">Marketplace</a></li>
+                </ul>
+            </div>
+            <div class="flex-1 hidden lg:block text-right">
+                <button class="bg-[#FF7801] font-gilroy font-semibold text-[#fff] rounded-[10px] px-[10px] py-2 text-[15px]">Get Started</button>
+            </div>
+            <div class="lg:hidden flex" id="menubtn">
+                <div class="cursor-pointer"><i class="fa-solid fa-bars"></i></div>
+            </div>
+        </div>
+           
+        <ul id="menu" class="max-h-0 overflow-hidden transition-all  font-gilroy absolute z-10 left-0 w-full bg-orange-900 h-[100vh] duration-500 ease-in-out lg:hidden border-t">
+            <div class="p-10 flex flex-col gap-5 text-white">
+                <li><a href="" class="">Discover</a></li>
+                <li><a class="./business.html" href="">Business</a></li>
+                <li><a href="./job.html">Jobs</a></li>
+                <li><a href="./event.html">Events</a></li>
+                <li><a href="">Marketplace</a></li>
+                <div class="">
+                    <button class="bg-[#FF7801] font-gilroy font-semibold text-[#fff] rounded-[10px] px-[10px] py-2 text-[15px]">Get Started</button>
+                </div>
+            </div>
+        </ul>
+    </header>
+
+    <div class="flex justify-between p-6 lg:px-16  py-3 items-center font-gilroy">
+        <div class="overflow-hidden py-3">
+            <ul class="flex gap-x-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
+                <li class="text-[#222222] font-[18px]"><a href="business.html">Business</a></li>
+                <li class="text-[#222222] font-[18px]"><a href="job.html">Jobs</a></li>
+                <li class="text-[#222222] font-[18px]">Cars</li>
+                <li class="text-[#222222] font-[18px]">Real Estate</li>
+                <li class="text-[#222222] font-[18px] border-b-[3px] border-[#EF8C37]"><a href="./business.html" class="text-[#EF8C37] font-normal ">Event</a></li>
+                <li class="text-[#222222] font-[18px]">Deals</li>
+            </ul>
+        </div>
+        <div class="relative items-center lg:block hidden">
+            <span class="absolute left-3 top-[45%] -translate-y-1/2 w-5 h-5 text-gray-400">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input type="text" placeholder="Search Anything" class="bg-[#F5F5F5]  outline-0 border-[1.5px] border-[#f5f5f5] py-[6px] pl-9 pr-32 rounded-[10px]">
+        </div>
+    </div>
+
+    <div class="lg:hidden relative flex gap-2 font-gilroy items-center justify-between border-r-0 border-[1px] py-4 border-[#DFDFDF] px-6">
+        <div class="relative flex items-center">
+            <span class="absolute left-3 top-[45%] -translate-y-1/2 w-5 h-5 text-gray-400">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input type="text" placeholder="Search Anything" class="bg-[#F5F5F5]  outline-0 border-[1.5px] border-[#f5f5f5] py-[6px] w-[100%] pl-9 pr-28 rounded-[10px]">
+        </div>
+
+        <div class="w-1/5 cursor-pointer" id="filterbtn">
+            <p class="py-2 px-4 flex items-center justify-center gap-1 text-[#3E3E3E] bg-[#f5f5f5] rounded-[10px]"> <span><i class="fa-solid fa-filter"></i></span> Filter</p>
+        </div>
+
+        <aside id="filter" class="lg:hidden max-w-0 overflow-hidden transition-all bg-gray-100 font-gilroy top-0 border-[#DFDFE0] border-[1px] w-[100%] absolute left-0 h-[650px] border-t-0 rounded-b-2xl">
+            <div class="flex flex-col gap-2  w-full">
+                <h3 class="font-semibold px-6 py-5 flex justify-between">Filter <span id="cancel" class="cursor-pointer"><i class="fa-solid fa-xmark"></i></span></h3>
+                <div class=" w-full px-4 py-1">
+                    <div class="">
+                        <div class="accordion-item">
+                            <button class="w-full flex px-2 justify-between items-center py-4 text-left font-medium focus:outline-none">
+                                <p class="text-[16px] flex items-center">
+                                <span class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="15px" height="15px" viewBox="0 -64 640 640"><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>
+                                </span> &nbsp;  
+                                Categories</p>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300 icon"></i>
+                            </button>
+                            <div class="accordion-content flex flex-col gap-3 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="flex justify-between px-2">
+                                    <p>All</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Agriculture</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Art</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Boutiques</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Logistics</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Construction</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Education and Vaction</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Electrical Appliance</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Healthcare</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="bg-[#EF8C371A] py-4 px-2 text-center cursor-pointer">
+                                    <p class="text-[#EF8C37]"> <span><i class="fa-solid fa-angles-down"></i></span> &nbsp; See All Categories</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="accordion-item">
+                            <button class="w-full flex justify-between items-center py-4 px-2 text-left font-medium focus:outline-none">
+                                <p class="flex items-center"><span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" width="15px" height="15px" viewBox="-4 0 32 32" version="1.1">
+        
+                                        <title>location</title>
+                                        <desc>Created with Sketch Beta.</desc>
+                                        <defs>
+
+                                    </defs>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                            <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-106.000000, -413.000000)" fill="#000000">
+                                                <path d="M118,422 C116.343,422 115,423.343 115,425 C115,426.657 116.343,428 118,428 C119.657,428 121,426.657 121,425 C121,423.343 119.657,422 118,422 L118,422 Z M118,430 C115.239,430 113,427.762 113,425 C113,422.238 115.239,420 118,420 C120.761,420 123,422.238 123,425 C123,427.762 120.761,430 118,430 L118,430 Z M118,413 C111.373,413 106,418.373 106,425 C106,430.018 116.005,445.011 118,445 C119.964,445.011 130,429.95 130,425 C130,418.373 124.627,413 118,413 L118,413 Z" id="location" sketch:type="MSShapeGroup">
+
+                                    </path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </span> &nbsp; Location</p>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content text-center max-h-0 overflow-hidden transition-all duration-300">
+                                <input type="text" placeholder="Enter State or City" class="bg-[#F5F5F5] w-[95%] py-2 outline-0 rounded-lg px-4">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="accordion-item">
+                            <button class="w-full flex px-2 justify-between items-center py-4 text-left font-medium focus:outline-none">
+                                <p class="text-[16px] flex items-center"> 
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 16 16" fill="none">
+                                    <path d="M9.00001 0H7.00001L5.51292 4.57681L0.700554 4.57682L0.0825195 6.47893L3.97581 9.30756L2.48873 13.8843L4.10677 15.0599L8.00002 12.2313L11.8933 15.0599L13.5113 13.8843L12.0242 9.30754L15.9175 6.47892L15.2994 4.57681L10.4871 4.57681L9.00001 0Z" fill="#000000"/>
+                                    </svg>
+                                </span> 
+                                &nbsp; Ratings</p>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content flex flex-col gap-3 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="flex justify-between px-2">
+                                    <p>5 Stars</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>4 Stars</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>3 Stars</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>2 Stars</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>1 Star</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="bg-[#35BB25] rounded-full py-2 text-white  absolute bottom-3 w-[95%] left-2.5">Clear Filter</button>
+            </div>
+        </aside>
+    </div>
+
+    <div class="lg:px-16 px-6 font-gilroy flex justify-between border-[1px] border-r-0 border-b-0">
+        <aside class="lg:flex hidden border-[#DFDFE0] border-[1px] w-[22%] h-[650px] relative border-t-0 py-5 rounded-b-2xl">
+            <div class="flex flex-col gap-2  w-full">
+                <h3 class="font-semibold px-2">Filter</h3>
+                <div class=" w-full">
+                    <div>
+                        <div class="accordion-item">
+                            <button class="w-full flex justify-between items-center py-4 px-2 text-left font-medium focus:outline-none">
+                                <p class="flex items-center"> <span><svg xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 7.063C16.5 10.258 14.57 13 12 13c-2.572 0-4.5-2.742-4.5-5.938C7.5 3.868 9.16 2 12 2s4.5 1.867 4.5 5.063zM4.102 20.142C4.487 20.6 6.145 22 12 22c5.855 0 7.512-1.4 7.898-1.857a.416.416 0 0 0 .09-.317C19.9 18.944 19.106 15 12 15s-7.9 3.944-7.989 4.826a.416.416 0 0 0 .091.317z" fill="#000000"/></svg></span> &nbsp; Event Type</p>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content text-center max-h-0 overflow-hidden transition-all duration-300">
+                                <input type="text" placeholder="Search Event" class="bg-[#F5F5F5] w-[95%] py-2 outline-0 rounded-lg px-4">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="accordion-item">
+                            <button class="w-full flex px-2 justify-between items-center py-4 text-left font-medium focus:outline-none">
+                                <p class="text-[16px] flex items-center">
+                                <span class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="15px" height="15px" viewBox="0 -64 640 640"><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>
+                                </span> &nbsp;  
+                                Categories</p>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300 icon"></i>
+                            </button>
+                            <div class="accordion-content flex flex-col gap-3 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="flex justify-between px-2">
+                                    <p>Conference</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Networking</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Workshop</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Seminar</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            <div class="flex justify-between px-2">
+                                    <p>Exhibition</p>
+                                    <input type="checkbox" class="w-[30px] h-4  accent-orange-500 text-white" nam2="" id="">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="accordion-item">
+                            <button class="w-full flex justify-between items-center py-4 px-2 text-left font-medium focus:outline-none">
+                                <p class="flex items-center"><span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" width="15px" height="15px" viewBox="-4 0 32 32" version="1.1">
+        
+                                        <title>location</title>
+                                        <desc>Created with Sketch Beta.</desc>
+                                        <defs>
+
+                                    </defs>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                            <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-106.000000, -413.000000)" fill="#000000">
+                                                <path d="M118,422 C116.343,422 115,423.343 115,425 C115,426.657 116.343,428 118,428 C119.657,428 121,426.657 121,425 C121,423.343 119.657,422 118,422 L118,422 Z M118,430 C115.239,430 113,427.762 113,425 C113,422.238 115.239,420 118,420 C120.761,420 123,422.238 123,425 C123,427.762 120.761,430 118,430 L118,430 Z M118,413 C111.373,413 106,418.373 106,425 C106,430.018 116.005,445.011 118,445 C119.964,445.011 130,429.95 130,425 C130,418.373 124.627,413 118,413 L118,413 Z" id="location" sketch:type="MSShapeGroup">
+
+                                    </path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </span> &nbsp; Location</p>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content text-center max-h-0 overflow-hidden transition-all duration-300">
+                                <input type="text" placeholder="City, Venue" class="bg-[#F5F5F5] w-[95%] py-2 outline-0 rounded-lg px-4">
+                                <div class="flex justify-between px-2 py-3">
+                                    <p class="font-semibold">Online Event</p>
+                                    <input type="checkbox" name="" id="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="accordion-item">
+                            <button class="w-full flex px-2 justify-between items-center py-4 text-left font-medium focus:outline-none">
+                                <p class="text-[16px] flex items-center"> 
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 16 16" fill="none">
+                                    <path d="M9.00001 0H7.00001L5.51292 4.57681L0.700554 4.57682L0.0825195 6.47893L3.97581 9.30756L2.48873 13.8843L4.10677 15.0599L8.00002 12.2313L11.8933 15.0599L13.5113 13.8843L12.0242 9.30754L15.9175 6.47892L15.2994 4.57681L10.4871 4.57681L9.00001 0Z" fill="#000000"/>
+                                    </svg>
+                                </span> 
+                                &nbsp; Event Price</p>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content flex flex-col gap-3 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="flex justify-between flex-col px-2 gap-2">
+                                <input type="number" placeholder="Min:" class="bg-[#F5F5F5] w-[95%] py-2 outline-0 rounded-lg px-4">
+                                <input type="number" placeholder="Max:" class="bg-[#F5F5F5] w-[95%] py-2 outline-0 rounded-lg px-4">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="bg-[#35BB25] rounded-full py-2 text-white  absolute bottom-3 w-[95%] left-1.5">Clear Filter</button>
+            </div>
+        </aside>
+        <main class="lg:w-[76%] w-full py-5">
+            <h3 class="font-semibold">Showing 450 results</h3>
+            <div class="my-5 flex flex-wrap justify-between gap-3 gap-y-5">
+                <div class="bg-[#f5f5f5] border-[#DFDFDF] border-[0.66px] w-[100%] sm:w-[48%] md:w-[32%] font-gilroy rounded-[10px] flex flex-col justify-between">
+                    <div class="bg-[#fff] rounded-[10px]">
+                        <img src="./14c92f9b315ad2e11c69c07c898e87a9d35be712.jpg" class="px-2 py-2 rounded-[20.6px]" alt="">
+                    </div>
+                    <div class="">
+                        <div class="flex flex-col gap-2 px-2 py-2">
+                            <h4 class="text-[#797979] text-[14px]">Sep 25, 2025</h4>
+                            <h5 class="font-semibold  text-[16px]">Art in the City: Urban Expression</h5>
+                            <p style="color: #35BB25;" class="text-[13px]"><span style="color:#35BB25"><i class="fa-solid fa-location-dot"></i></span> &nbsp;Regal Hall, Oregun, Lagos State</p>
+                        </div>
+                        <div class="flex justify-between border-t-[1px] px-2 py-2 border-gray-500">
+                            <div class="flex gap-2 items-center">
+                                <div class="flex items-center">
+                                    <img src="./4507a3162dffac2d85eeb6e31d1a15c57091a204.jpg" class="w-[20px] h-5  object-cover rounded-[10px] " alt="Background">
+                                    <img src="./8d669283e9ebd32534fecccff103dc55ac8a3fb0.jpg" class="w-[20px] h-5  object-cover rounded-[10px] ml-[-5px]" alt="Middle">
+                                    <img src="./38e3dc306f9f4d2d34aa503b068d837630ff3b81.jpg" class="w-[20px] h-5  object-cover rounded-[10px] ml-[-5px]" alt="Top">
+                                </div>                            
+                                <p style="color: #797979;" class="text-[15px]">150+ Going</p>
+                            </div>
+                            <h4>₦8,000</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[#f5f5f5] border-[#DFDFDF] border-[0.66px] w-[100%] sm:w-[48%] md:w-[32%] font-gilroy rounded-[10px] flex flex-col justify-between">
+                    <div class="bg-[#fff] rounded-[10px]">
+                        <img src="./14c92f9b315ad2e11c69c07c898e87a9d35be712.jpg" class="px-2 py-2 rounded-[20.6px]" alt="">
+                    </div>
+                    <div class="">
+                        <div class="flex flex-col gap-2 px-2 py-2">
+                            <h4 class="text-[#797979] text-[14px]">Sep 25, 2025</h4>
+                            <h5 class="font-semibold  text-[16px]">Art in the City: Urban Expression</h5>
+                            <p style="color: #35BB25;" class="text-[13px]"><span style="color:#35BB25"><i class="fa-solid fa-location-dot"></i></span> &nbsp;Regal Hall, Oregun, Lagos State</p>
+                        </div>
+                        <div class="flex justify-between border-t-[1px] px-2 py-2 border-gray-500">
+                            <div class="flex gap-2 items-center">
+                                <div class="flex items-center">
+                                    <img src="./4507a3162dffac2d85eeb6e31d1a15c57091a204.jpg" class="w-[20px] h-5  object-cover rounded-[10px] " alt="Background">
+                                    <img src="./8d669283e9ebd32534fecccff103dc55ac8a3fb0.jpg" class="w-[20px] h-5  object-cover rounded-[10px] ml-[-5px]" alt="Middle">
+                                    <img src="./38e3dc306f9f4d2d34aa503b068d837630ff3b81.jpg" class="w-[20px] h-5  object-cover rounded-[10px] ml-[-5px]" alt="Top">
+                                </div>                            
+                                <p style="color: #797979;" class="text-[15px]">150+ Going</p>
+                            </div>
+                            <h4>₦8,000</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[#f5f5f5] border-[#DFDFDF] border-[0.66px] w-[100%] sm:w-[48%] md:w-[32%] font-gilroy rounded-[10px] flex flex-col justify-between">
+                    <div class="bg-[#fff] rounded-[10px]">
+                        <img src="./14c92f9b315ad2e11c69c07c898e87a9d35be712.jpg" class="px-2 py-2 rounded-[20.6px]" alt="">
+                    </div>
+                    <div class="">
+                        <div class="flex flex-col gap-2 px-2 py-2">
+                            <h4 class="text-[#797979] text-[14px]">Sep 25, 2025</h4>
+                            <h5 class="font-semibold  text-[16px]">Art in the City: Urban Expression</h5>
+                            <p style="color: #35BB25;" class="text-[13px]"><span style="color:#35BB25"><i class="fa-solid fa-location-dot"></i></span> &nbsp;Regal Hall, Oregun, Lagos State</p>
+                        </div>
+                        <div class="flex justify-between border-t-[1px] px-2 py-2 border-gray-500">
+                            <div class="flex gap-2 items-center">
+                                <div class="flex items-center">
+                                    <img src="./4507a3162dffac2d85eeb6e31d1a15c57091a204.jpg" class="w-[20px] h-5  object-cover rounded-[10px] " alt="Background">
+                                    <img src="./8d669283e9ebd32534fecccff103dc55ac8a3fb0.jpg" class="w-[20px] h-5  object-cover rounded-[10px] ml-[-5px]" alt="Middle">
+                                    <img src="./38e3dc306f9f4d2d34aa503b068d837630ff3b81.jpg" class="w-[20px] h-5  object-cover rounded-[10px] ml-[-5px]" alt="Top">
+                                </div>                            
+                                <p style="color: #797979;" class="text-[15px]">150+ Going</p>
+                            </div>
+                            <h4>₦8,000</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-7 flex justify-center lg:justify-between items-center">
+                <p class="hidden lg:block">Showing 1 to 10 of 120 Entries</p>
+                <div class="flex gap-3">
+                    <span class="bg-[#F5F5F5] h-[45px] w-[45px] flex justify-center items-center text-[15px] rounded-[5px]"><i class="fa-solid fa-arrow-left"></i></span>
+                    <p class="bg-[#35BB25] h-[45px] w-[45px] flex justify-center items-center text-[15px] rounded-[5px]">1</p>
+                    <p class="bg-[#F5F5F5]  h-[45px] w-[45px] flex justify-center items-center text-[15px] rounded-[5px]">2</p>
+                    <span class="bg-[#F5F5F5]  h-[45px] w-[45px] flex justify-center items-center text-[15px] rounded-[5px]">...</span>
+                    <span class="bg-[#F5F5F5]  h-[45px] w-[45px] flex justify-center items-center text-[15px] rounded-[5px]">10</span>
+                    <span class=" bg-[#F5F5F5] h-[45px] w-[45px] flex justify-center items-center text-[15px] rounded-[5px]"><i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <section class="lg:px-16 px-6 my-10 flex flex-col gap-6 font-gilroy">
+        <img src="./f30601cd623a742959dffd1c86d8f9c5e71c7a3d.jpg" class="rounded-[10px] w-[100%]" alt="">
+        <div style="background-color: #002B1A;" class="flex items-center gap-y-5 p-5 lg:h-[238px] rounded-[20px] p-5">
+            <div class="flex lg:flex-row flex-col justify-between gap-10 lg:items-end w-full">
+                <div class="flex flex-col gap-4">
+                    <h3 class="lg:text-[35px] text-[20px] text-[#fff] w-[350px] capitalize lg:leading-9 leading-5 font-semibold">Subscribe now to our newsletter</h3>
+                    <p class="text-gray-400 lg:w-[433px] w-[315px] capitalize text-[11px] lg:text-[19px]">Subscribe now and never miss a thing about new businesses and services in Nigeria. </p>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <input type="text" class="rounded-[10px] py-[10.6px] px-[14px]" placeholder="Enter your email here">
+                    <button class="rounded-[30px] bg-[#35BB25] text-white px-28 py-[10.66px]">Subscribe</button>
+                </div>
+            </div>
+       </div>
+    </section>
+
+    <footer class="lg:px-16 px-6 font-gilroy gap-7">
+        <div class="flex justify-between py-6 lg:flex-row flex-col gap-y-8">
+            <div>
+                <img src="./Знімок екрана 2022-12-05 о 12.05 1.png" alt="">
+            </div>
+            <div class="flex lg:justify-between gap-x-24 gap-y-10 lg:gap-14 flex-wrap lg:w-[50%] w-full">
+                <div class="sub-links">
+                    <div>
+                        <ul class="flex flex-col gap-2">
+                            <h4 class="text-[#6C727F] text-[18px]">NAVIGATION</h4>
+                            <li>Food & Drinks</li>
+                            <li>Events</li>
+                            <li>Business</li>
+                            <li>Services</li>
+                            <li>Marketplace</li>
+                            <li>Jobs</li>
+                            <li>Real Estate</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sub-links">
+                    <div>
+                        <ul class="flex flex-col gap-2">
+                            <h4 class="text-[#6C727F] text-[18px]">ABOUT</h4>
+                            <li class="font-medium">Who We Are</li>
+                            <li>Contact Us</li>
+                            <li>FAQs</li>
+                            <li>Terms of Use</li>
+                            <li>Privacy Policy</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sub-links">
+                    <div>
+                        <ul class="flex flex-col gap-2">
+                            <h4 class="text-[#6C727F] text-[18px]">STAY UPDATED</h4>
+                            <li>Advertise</li>
+                            <li>Articles</li>
+                            <li>CNTV</li>
+                            <li>Business Mixer</li>
+                            <li>Club Connect</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between lg:flex-row flex-col gap-y-5 border-t-[1px] border-gray-500 py-5 mb-6">
+            <div>
+                <p>©2024ConnectNigeria.com — All Rights Reserved</p>
+            </div>
+            <div class="links">
+                <ul class="flex gap-10">
+                    <li><a href="" class="text-[#6C727F]"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="" class="text-[#6C727F]"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href="" class="text-[#6C727F]"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="" class="text-[#6C727F]"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+
+ <script>
+    const btn = document.getElementById("menubtn");
+    const menu = document.getElementById("menu");
+
+      btn.addEventListener("click", () => {
+      if (menu.classList.contains("max-h-0")) {
+        menu.classList.remove("max-h-0");
+        menu.classList.add("max-h-96");
+      } else {
+        menu.classList.add("max-h-0");
+        menu.classList.remove("max-h-96");
+      }
+    });
+
+    const filterbtn = document.getElementById("filterbtn");
+    const filter = document.getElementById("filter");
+    const cancel = document.getElementById("cancel");
+
+      filterbtn.addEventListener("click", () => {
+      if (filter.classList.contains("max-w-0")) {
+        filter.classList.remove("max-w-0");
+        filter.classList.add("max-w-full");
+      } else {
+        filter.classList.add("max-w-0");
+        filter.classList.remove("max-w-full");
+      }
+    });
+
+    cancel.addEventListener('click' , () => {
+        filter.classList.add("max-w-0");
+        filter.classList.remove("max-w-full");
+    })
+
+  
+    document.querySelectorAll(".accordion-item button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector("i");
+
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+          icon.classList.remove("rotate-180");
+        } else {
+          document.querySelectorAll(".accordion-content").forEach((el) => {
+            el.style.maxHeight = null;
+          });
+          document.querySelectorAll(".accordion-item i").forEach((ic) => {
+            ic.classList.remove("rotate-180");
+          });
+
+          content.style.maxHeight = content.scrollHeight + "px";
+          icon.classList.add("rotate-180");
+        }
+      });
+    });
+  </script>
+</html>
